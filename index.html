@@ -145,6 +145,12 @@ function toggleLang() {
   document.getElementById('langBtn').textContent = lang === 'es' ? 'EN' : 'ES';
   document.getElementById('input').placeholder = lang === 'es' ? 'Escríbeme, ¿en qué te ayudo?' : 'Ask me anything about Yucatán!';
   document.getElementById('statusLabel').textContent = lang === 'es' ? 'En línea' : 'Online';
+  conversationHistory = [];
+  document.getElementById('messages').innerHTML = '';
+  const welcome = lang === 'es'
+    ? `¡Bienvenido! 🌴 Soy Alex, de **Yucatecos Viajeros**.\n\nMira, llevamos desde 2018 recorriendo cada rincón de Yucatán y te juro que no hay lugar más hermoso en México. Aquí te voy a ayudar a planear el viaje que siempre soñaste — con los tips de quien realmente lo vive.\n\n¿Ya tienes fechas o todavía estás planeando? ¿Vienes solo, en pareja, con familia?`
+    : `Welcome! 🌴 I'm Alex from **Yucatecos Viajeros**.\n\nWe've been exploring every corner of Yucatán since 2018 — honestly, there's no more magical place in Mexico. I'm here to help you plan the trip of your dreams, with real local tips.\n\nDo you have dates already or still in the planning stage? Coming solo, with a partner, or with family?`;
+  addBot(welcome, true);
 }
 
 function buildSystemPrompt() {
